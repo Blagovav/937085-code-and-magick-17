@@ -25,8 +25,8 @@ var getMaxElement = function(arr){
 };
 
 var getrandomBlueColor = function() {
-    var randomBlue = Math.round10(Math.random());
-    return 'rgb(0, 0, randomBlue)';
+    var randomBlue = Math.floor(Math.random()*256);
+    return 'rgb(0,0,' + randomBlue+')';
 };
 
 
@@ -43,7 +43,7 @@ window.renderStatistics = function(ctx, players, times) {
 
     for(var i = 0;i<players.length;i++){
         ctx.fillText(players[i],(CLOUD_X + GAP)+(GAP+COLUMN_WIDTH)*i, CLOUD_Y + FONT_GAP + COLUMN_HEIGHT + TEXT_HEIGHT);
-        ctx.fillStyle = 'getrandomBlueColor';
+        ctx.fillStyle = getrandomBlueColor();
         ctx.fillRect((CLOUD_X + GAP)+(GAP+COLUMN_WIDTH)*i,CLOUD_HEIGHT-FONT_GAP+TEXT_HEIGHT, COLUMN_WIDTH, (-COLUMN_HEIGHT*times[i])/maxTime);
         //ctx.fillRect((CLOUD_X + GAP)+(GAP+COLUMN_WIDTH)*i,CLOUD_Y + FONT_GAP, COLUMN_WIDTH, (COLUMN_HEIGHT*times[i])/maxTime);
     }
