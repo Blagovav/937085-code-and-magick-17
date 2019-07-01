@@ -14,39 +14,57 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template')
     .content
     .querySelector('.setup-similar-item');
 
+var getrandomName = function () {
+  var randomName = Math.floor(Math.random() * WIZARD_NAMES.length);
+  return WIZARD_NAMES[randomName];
+};
+
+var getrandomEyse = function () {
+  var randomEyse = Math.floor(Math.random() * EYES_COLOR.length);
+  return EYES_COLOR[randomEyse];
+};
+
+var getrandomCoat = function () {
+  var randomCoat = Math.floor(Math.random() * COAT_COLOR.length);
+  return COAT_COLOR[randomCoat];
+};
+
+var getrandomSurname = function () {
+  var randomSurname = Math.floor(Math.random() * WIZARD_SURNAME.length);
+  return WIZARD_SURNAME[randomSurname];
+};
 
 var wizards = [
   {
-    name: WIZARD_NAMES[0],
-    coatColor: COAT_COLOR[0],
-    surname: WIZARD_SURNAME[1],
-    eyesColor: EYES_COLOR[1]
+    name: getrandomName(),
+    coatColor: getrandomCoat(),
+    surname: getrandomSurname(),
+    eyesColor: getrandomEyse()
   },
   {
-    name: WIZARD_NAMES[1],
-    coatColor: 'rgb(215, 210, 55)',
-    surname: WIZARD_SURNAME[2],
+    name: getrandomName(),
+    coatColor: getrandomCoat(),
+    surname: getrandomSurname(),
     eyesColor: EYES_COLOR[2]
   },
   {
-    name: WIZARD_NAMES[2],
-    coatColor: 'rgb(101, 137, 164)',
-    surname: WIZARD_SURNAME[3],
-    eyesColor: EYES_COLOR[3]
+    name: getrandomName(),
+    coatColor: getrandomCoat(),
+    surname: getrandomSurname(),
+    eyesColor: getrandomCoat()
   },
   {
-    name: WIZARD_NAMES[3],
-    coatColor: 'rgb(127, 127, 127)',
-    surname: WIZARD_SURNAME[4],
-    eyesColor: EYES_COLOR[4]
+    name: getrandomName(),
+    coatColor: getrandomCoat(),
+    surname: getrandomSurname(),
+    eyesColor: getrandomCoat()
   }
 ];
 
 
 var renderWizard = function (wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
-  wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
-  wizardElement.querySelector('.setup-similar-label').textContent = wizard.surname;
+  wizardElement.querySelector('.setup-similar-label').textContent = wizard.name + wizard.surname;
   wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor;
   wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
   return wizardElement;
