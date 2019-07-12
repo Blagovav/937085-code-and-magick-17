@@ -156,11 +156,11 @@ var setupCoat = function (evt) {
 
 setupWizzard.addEventListener('click', setupCoat);
 
-var wizardEyse = document.querySelector('.wizard-eyse');
+var wizardEyse = document.querySelector('.wizard-eyes');
 
 var setupEyse = function (evt) {
   evt.preventDefault();
-  wizardEyse.style = 'fill: + getrandomEyse()';
+  wizardEyse.style = 'fill:' + getrandomEyse();
 };
 
 setupWizzard.addEventListener('click', setupEyse);
