@@ -148,34 +148,20 @@ userNameInput.addEventListener('input', function (evt) {
 
 var setupWizzard = document.querySelector('.setup-wizard');
 var wizardCoat = document.querySelector('.wizard-coat');
-
-var setupCoat = function (evt) {
-  evt.preventDefault();
-  wizardCoat.style = 'fill: + getrandomCoat()';
-};
-
-setupWizzard.addEventListener('click', setupCoat);
-
 var wizardEyse = document.querySelector('.wizard-eyes');
-
-var setupEyse = function (evt) {
-  evt.preventDefault();
-  wizardEyse.style = 'fill:' + getrandomEyse();
-};
-
-setupWizzard.addEventListener('click', setupEyse);
-
-
 var fireBall = document.querySelector('.setup-fireball-wrap');
-var fireBallColor = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+var FIRE_BALL_COLOR = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 var getrandomFireBall = function () {
-  var randomBall = Math.floor(Math.random() * fireBallColor.length);
-  return fireBallColor[randomBall];
+  var randomBall = Math.floor(Math.random() * FIRE_BALL_COLOR.length);
+  return FIRE_BALL_COLOR[randomBall];
 };
 
-var setupBall = function (evt) {
+
+var wizardColorSetup = function (evt) {
   evt.preventDefault();
-  fireBall.style = 'fill: + getrandomFireBall()';
+  fireBall.style = 'background-color:' + getrandomFireBall();
+  wizardEyse.style = 'fill:' + getrandomEyse();
+  wizardCoat.style = 'fill:' + getrandomCoat();
 };
 
-setupWizzard.addEventListener('click', setupBall);
+setupWizzard.addEventListener('click', wizardColorSetup);
